@@ -22,7 +22,8 @@ const { getMedicos,
  //Crear Usuarios
  router.post( 
               '/' ,
-               [  validarJWT,
+               [  
+                  validarJWT,
                   check('nombre', 'El nombre del medico es necesario.').not().isEmpty(), 
                   check('hospital', 'El hospital id debe de ser valido.').isMongoId(), 
                   validarCampos 
@@ -33,7 +34,12 @@ const { getMedicos,
 
 
 router.put( '/:id', 
-     []
+     [
+      validarJWT,
+      check('nombre', 'El nombre del medico es necesario.').not().isEmpty(), 
+      check('hospital', 'El hospital id debe de ser valido.').isMongoId(), 
+      validarCampos     
+     ]
       ,  actualizarMedico,
  
 ); 

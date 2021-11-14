@@ -17,8 +17,9 @@ app.use( express.json() );
 
 // Base de datos
     dbConnection();
-// MEAN_USER
-// EFPtEEZ5e0dok4PX
+
+// Directorio publico
+    app.use( express.static('public') ) ;/// hace referencia a la carpeta Public
  
 // Rutas
 app.use('/api/usuarios', require('./routes/usuarios') );
